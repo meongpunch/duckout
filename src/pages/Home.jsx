@@ -259,7 +259,7 @@ const Home = () => {
                 target="blank"
               >
                 <div key={item.id} className="highlight-card">
-                  <div className="img-box">
+                  <div className="img-box box">
                     <img src={item.img} alt={item.title} />
                   </div>
                   <div className="play-icon">
