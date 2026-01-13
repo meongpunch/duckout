@@ -1,0 +1,87 @@
+.stadium-main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.stadium-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/img/stadium-main-image.svg") no-repeat center/cover;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+
+.top-bar {
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-location {
+  font-size: 24px;
+  display: block;
+}
+
+.chevron-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.topbar-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.bottom-box {
+  height: 27%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 16px;
+  background: #151515;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 3;
+
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.bottom-box.closed {
+  transform: translateY(180);
+}
+
+.bottom-box.open {
+  transform: translateY(0);
+  max-height: calc(100vh - 90vh);
+  overflow-y: auto;
+}
+
+.bottom-box .handle {
+  width: 43px;
+  height: 3px;
+  margin: 28px auto 22px;
+  border-radius: 999px;
+  background: #cfcfcf;
+}
+
+.bottom-box .title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.bottom-box .desc {
+  font-size: 16px;
+  color: #a8a8a8;
+}
