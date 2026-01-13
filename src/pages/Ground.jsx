@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Ground = () => {
-  return (
-    <div>Ground</div>
-  )
-}
+  return <div>Ground</div>;
+};
 
-export default Ground
+export default Ground;
