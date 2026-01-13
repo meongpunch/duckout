@@ -11,7 +11,7 @@
   z-index: 0;
 }
 
-.inner {
+.stadium-bg .inner {
   position: relative;
   z-index: 1;
   height: 100vh;
