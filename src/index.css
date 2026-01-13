@@ -36,7 +36,6 @@ section {
 }
 
 .point {
-  font-family: "PonitenFont";
-  letter-spacing: 3px;
+  font-family: "Humane", sans-serif;
   line-height: 100%;
 }

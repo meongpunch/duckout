@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Stadium from "./pages/Stadium";
 import Ground from "./pages/Ground";
 import Lockerroom from "./pages/Lockerroom";
+import PlayerDetail from "./pages/PlayerDetail";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="stadium" element={<Stadium />} />
         <Route path="ground" element={<Ground />} />
         <Route path="lockerroom" element={<Lockerroom />} />
+        <Route path="player/:id" element={<PlayerDetail />} />
       </Route>
     </Routes>
   );
