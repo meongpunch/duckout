@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
+<<<<<<< HEAD
+=======
+import MainPgHeader from "../components/MainPgHeader";
+>>>>>>> 139f61a23ff61a899ee5307ed219d109c249f3c7
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -77,15 +81,59 @@ const Home = () => {
   ];
   const [activePlayer, setActivePlayer] = useState(players[0]);
 
+  const highlights = [
+    {
+      id: 1,
+      title: "이 순간, 팀이 하나가 된다",
+      img: "/img/highlight-img_1.svg",
+    },
+    {
+      id: 2,
+      title: "마운드를 지배한 한 이닝",
+      img: "/img/highlight-img_2.svg",
+    },
+    {
+      id: 3,
+      title: "비가 와도, 멈추지 않는다",
+      img: "/img/highlight-img_3.svg",
+    },
+    {
+      id: 4,
+      title: "0.1초의 판단",
+      img: "/img/highlight-img_4.svg",
+    },
+  ];
+
+  const rankData = [
+    {
+      id: 1,
+      rank: 1,
+      name: "한화 이글스",
+      enName: "Hanwha Eagles",
+      logo: "/img/Hanwha_logo.svg",
+      state: "-",
+    },
+    {
+      id: 2,
+      rank: 2,
+      name: "엔씨 다이노스",
+      enName: "NC Dinos",
+      logo: "/img/NC_logo.svg",
+      state: "up",
+    },
+    {
+      id: 3,
+      rank: 3,
+      name: "기아 타이거즈",
+      enName: "KIA TIGERS",
+      logo: "/img/KIA_logo.svg",
+      state: "up",
+    },
+  ];
+
   return (
     <div className="home-container">
-      {/* Header */}
-      <header>
-        <div className="innerHeader">
-          <h1 className="logo">LOGO</h1>
-          <div className="icon-box noti-icon"></div>
-        </div>
-      </header>
+      <MainPgHeader />
       {/* hero section */}
       <section className="hero">
         <div className="hero-info">
@@ -109,7 +157,6 @@ const Home = () => {
             spaceBetween={"70"}
             initialSlide={0}
             loop={true}
-            loopedSlides={2}
             observer={true}
             coverflowEffect={{
               rotate: 0,
@@ -153,8 +200,8 @@ const Home = () => {
             className="comment-swiper"
             allowTouchMove={true}
           >
-            {commentsTop.map((comment) => (
-              <SwiperSlide key={comment.id} className="comment-slide">
+            {commentsTop.map((comment, index) => (
+              <SwiperSlide key={`top-${index}`} className="comment-slide">
                 <div className="comment-bubble">
                   <div className="profile-circle">
                     <img src={comment.user} alt="user" />
@@ -219,7 +266,7 @@ const Home = () => {
               <a
                 href="https://www.tving.com/sports/kbo?n_media=27758&n_query=%ED%8B%B0%EB%B9%99%ED%94%84%EB%A1%9C%EC%95%BC%EA%B5%AC&n_rank=1&n_ad_group=grp-a001-01-000000040965984&n_ad=nad-a001-01-000000304649436&n_keyword_id=nkw-a001-01-000006209738999&n_keyword=%ED%8B%B0%EB%B9%99%ED%94%84%EB%A1%9C%EC%95%BC%EA%B5%AC&n_campaign_type=1&n_ad_group_type=1&n_match=1&NaPm=ct%3Dlxu4x8vk%7Cci%3D0yq0001stlDAQEDawuZ3%7Ctr%3Dsa%7Chk%3D042b634c63c901280f5dc010bed047eea6dd624b%7Cnacn%3DfCfnEwAeI5wuG&gad_source=1&gad_campaignid=23411707576&gbraid=0AAAAAC1p3XT_j6qAvWxWCs4XTOziQc-4Y&gclid=Cj0KCQiAyP3KBhD9ARIsAAJLnnaqqc3jVSwCRjGb7h5iBTQf-V_vdM7JO1I6ObWRBba35HR56mspBK0aAkzAEALw_wcB"
                 target="blank"
-                className="tving-btn"
+                className="tving-btn btn"
               >
                 TVING 바로가기
               </a>
@@ -227,6 +274,85 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="highlights">
+        <div className="inner">
+          <h3 className="section-title">하이라이트</h3>
+          <div className="highlight-grid">
+            {highlights.map((item) => (
+              <a
+                href="https://www.youtube.com/shorts/CWDAbmIgfvA"
+                target="blank"
+              >
+                <div key={item.id} className="highlight-card">
+                  <div className="img-box box">
+                    <img src={item.img} alt={item.title} />
+                  </div>
+                  <div className="play-icon">
+                    <img src="/img/play-icon.svg" alt="" />
+                  </div>
+                  <div className="text-overlay">
+                    <p>{item.title}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="team-rank">
+        <div className="inner">
+          <h3 className="section-title">구단 순위</h3>
+          <div className="rank-card box">
+            <div className="rank-hero">
+              <img
+                className="bg-img"
+                src="/img/kia-rank-img.svg"
+                alt="기아 타이거즈 대표 이미지"
+              />
+              <div className="hero-content">
+                <img className="top-logo" src="/img/KIA_logo.svg" alt="로고" />
+                <div className="big-rank-col">
+                  <span className="num">3</span>
+                  <span className="diff">
+                    1<span className="arrow">▲</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul className="rank-list">
+            {rankData.map((team) => (
+              <li
+                key={team.id}
+                className={`rank-item ${team.isMyTeam ? "my-team" : ""}`}
+              >
+                <div className="img-box logo-box">
+                  <img src={team.logo} alt={team.name} />
+                </div>
+                <div className="rightBox">
+                  <div className="rank-col">
+                    <span className="num">{team.rank}</span>
+                    <div className="diff">
+                      {team.state === "up" && <span className="up">▲</span>}
+                      {team.state === "-" && <span className="dash">-</span>}
+                      {team.state === "down" && <span className="down">▼</span>}
+                    </div>
+                  </div>
+                  <div className="name-col">
+                    <p className="ko">{team.name}</p>
+                    <p className="en">{team.enName}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="gradient-box"></div>
+          <Link to={"/teamrank"} className="more btn">
+            더보기
+          </Link>
+        </div>
+      </section>
+      <section className="TodayQuiz"></section>
     </div>
   );
 };
