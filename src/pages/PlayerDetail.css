@@ -1,8 +1,11 @@
 /* PlayerDetail.css */
+section.player-hero {
+  margin-top: 50px;
+  min-height: 708px;
+}
 .detail-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #111;
   background-color: #111; /* Home과 비슷한 어두운 배경 */
   color: #fff;
   padding: 0 auto;
@@ -24,6 +27,33 @@
   letter-spacing: 6.5px;
   line-height: 0.9;
   margin: 74px 0 0 22px;
+}
+
+.player-hero-box-red {
+  position: relative;
+  height: 49px;
+}
+
+.player-red-bg {
+  position: absolute;
+}
+
+.player-detail-red-txt {
+  position: absolute;
+  font-size: 18px;
+  font-weight: bold;
+  top: 50%;
+  left: 7%;
+  transform: translateY(-50%);
+}
+
+.player-hero-box-desc {
+  margin-top: 150px;
+}
+
+.player-hero-box-desc-txt {
+  width: 93%;
+  margin: 18px auto 0;
 }
 
 /* 1. 전체를 감싸는 부모 박스: 기준점이 됨 */

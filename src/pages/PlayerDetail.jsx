@@ -72,6 +72,17 @@ const PlayerDetail = () => {
               <img src="/img/player-detail-yang.png" alt="양현종선수" />
             </div>
           </div>
+          <div className="player-hero-box-desc">
+            <div className="player-hero-box-red">
+              <img
+                className="player-red-bg"
+                src="/img/player-detail-red.svg"
+                alt="글자배경"
+              />
+              <p className="player-detail-red-txt">투수ㅣ에이스</p>
+            </div>
+            <p className="player-hero-box-desc-txt">"기아를 지켜온 에이스"</p>
+          </div>
         </div>
       </section>
     </div>
