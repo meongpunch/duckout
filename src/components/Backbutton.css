@@ -5,8 +5,7 @@
   display: flex;
   justify-content: space-between; /* 좌-중-우 배치 */
   align-items: center;
-  margin-top: 80px;
-  height: auto;
+  height: 80px;
   position: relative; /* 타이틀 정중앙 배치를 위한 기준 */
 }
 

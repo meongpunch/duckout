@@ -58,7 +58,7 @@ const PlayerDetail = () => {
       <section className="player-hero">
         <div className="player-hero-box">
           <div className="player-hero-box-bg">
-            <img src="/img/player-detail-bg.png" alt="" />
+            <img src="/img/player-detail-bg.png" alt="기아타이거즈배경" />
           </div>
           <div className="player-hero-box-cont">
             <p className="player-hero-box-cont-txt point">
@@ -68,6 +68,20 @@ const PlayerDetail = () => {
               <br />
               JONG
             </p>
+            <div className="player-hero-box-cont-img">
+              <img src="/img/player-detail-yang.png" alt="양현종선수" />
+            </div>
+          </div>
+          <div className="player-hero-box-desc">
+            <div className="player-hero-box-red">
+              <img
+                className="player-red-bg"
+                src="/img/player-detail-red.svg"
+                alt="글자배경"
+              />
+              <p className="player-detail-red-txt">투수ㅣ에이스</p>
+            </div>
+            <p className="player-hero-box-desc-txt">"기아를 지켜온 에이스"</p>
           </div>
         </div>
       </section>
