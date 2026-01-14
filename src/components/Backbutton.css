@@ -1,0 +1,32 @@
+.back-header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 양쪽 끝 배분 */
+  height: 80px;
+  padding: 0 16px;
+}
+
+/* title 글자크기 */
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 왼쪽 버튼 */
+.back-btn {
+  width: 40px; /* 고정 너비 지정 추천 */
+  display: flex;
+  /* ... */
+}
+
+/* 오른쪽 빈 공간 (왼쪽과 동일한 너비) */
+.empty-space {
+  width: 40px; /* back-btn과 똑같은 너비여야 정확히 중앙이 됨 */
+}
+
+/* 중앙 타이틀 영역 */
+.title-area {
+  flex-grow: 1; /* 가운데 빈 공간을 모두 차지함 */
+  text-align: center; /* 그 안에서 글자 가운데 정렬 */
+}
