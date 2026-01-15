@@ -142,3 +142,101 @@ section.player-hero {
   font-weight: 300;
   text-align: right; /* 오른쪽 정렬 */
 }
+
+/* --- LEGEND SCALE 그래프 스타일 (통합본) --- */
+
+/* 전체 섹션 배경 및 설정 */
+.legend-scale-section {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: "Pretendard", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* 내부 너비 조정용 (필요시 사용) */
+.scale-inner {
+  width: 93%;
+  margin: 0 auto;
+}
+
+.text-group {
+  margin-bottom: 40px;
+}
+
+/* 타이틀 스타일 */
+.text-group .section-title {
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0;
+  line-height: 1.32;
+}
+
+/* 서브 설명 텍스트 */
+.sub-description {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 4px;
+  line-height: 1.32;
+  letter-spacing: -0.02rem;
+}
+
+/* 그래프 컨테이너 */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* 바닥 기준 정렬 */
+  gap: 12px; /* 피그마 스펙: 막대 사이 간격 */
+  height: 100px; /* 전체 그래프 높이 */
+  width: 100%;
+}
+
+/* 개별 막대 스타일 */
+.bar {
+  flex: none; /* 반응형 끄기 (고정 너비 사용을 위해) */
+  width: 30px; /* 피그마 스펙: 막대 너비 */
+
+  background-color: #8a0000;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 0%; /* 애니메이션 시작점 */
+  animation: growUp 1s ease-out forwards;
+  position: relative;
+}
+
+/* 마지막 강조 막대 스타일 */
+.bar.highlight {
+  background-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* 빛나는 효과 */
+  z-index: 1;
+}
+
+/* 66% 텍스트 라벨 */
+.percent-label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 14px;
+  white-space: nowrap;
+
+  opacity: 0;
+  animation: fadeIn 0.5s 0.8s forwards;
+}
+
+/* 애니메이션 정의 */
+@keyframes growUp {
+  to {
+    height: var(--h);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

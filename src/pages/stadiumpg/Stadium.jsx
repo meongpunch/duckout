@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Gnb from "../components/Gnb";
+import Gnb from "../../components/Gnb";
 import "./Stadium.css";
-import MainPgHeader from "../components/MainPgHeader";
+import MainPgHeader from "../../components/MainPgHeader";
 
 const Stadium = () => {
   const navigate = useNavigate();
@@ -35,13 +35,6 @@ const Stadium = () => {
 
   const [seatType, setSeatType] = useState(null);
   const [zone, setZone] = useState(null);
-
-  useEffect(() => {
-    if (sheetOpen) {
-      setSeatType(null);
-      setZone(null);
-    }
-  }, [sheetOpen]);
 
   const seatTypeOptions = [
     "프리미엄석",
@@ -209,6 +202,9 @@ const Stadium = () => {
                       e.stopPropagation();
                       setStadiumName(name);
                       setStadiumOpen(false);
+
+                      setSeatType(null);
+                      setZone(null);
                     }}
                   >
                     {name}
