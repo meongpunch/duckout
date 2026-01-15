@@ -461,8 +461,7 @@
   transform: translateX(-50%);
 }
 /* MD section */
-.MD {
-}
+
 .MD .list {
   display: flex;
   gap: 10px;
