@@ -29,6 +29,8 @@ const App = () => {
         <Route path="lockerroom" element={<Lockerroom />} />
         <Route path="player/:id" element={<PlayerDetail />} />
         <Route path="teamrank" element={<TeamRank />} />
+         <Route path="/" element={<Splash />} />
+
       </Route>
     </Routes>
   );

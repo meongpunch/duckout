@@ -20,25 +20,25 @@
   -webkit-user-drag: none;
 }
 
-.onboarding-container::after {
+.onboarding-container::after{
   pointer-events: none;
 }
 
-.backbtn {
-  position: absolute;
-  top: 80px;
-  left: 16px;
-  z-index: 5;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
+.backbtn{
+  position:absolute;
+  top:80px;
+  left:16px;
+  z-index:5;
+  background:transparent;
+  border:0;
+  padding:0;
+  cursor:pointer;
 }
 
-.backbtn img {
-  width: 100%;
-  height: 100%;
-  display: block;
+.backbtn img{
+  width:8px;
+  height:16px;
+  display:block;
 }
 
 .skip {

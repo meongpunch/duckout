@@ -18,7 +18,7 @@ const Splash = () => {
         <img src="/img/splash-img.jpg" alt="" />
       </div>
       <div className="text-box">
-        <p className="spalsh-txt">The 10th Player</p>
+        <p className="splash-txt">The 10th Player</p>
         <h1 className="splash-title point">DUGOUT</h1>
       </div>
     </div>
