@@ -15,17 +15,17 @@ const PlayerDetail = () => {
   const cards = [
     {
       id: 1,
-      image: "https://placehold.co/300x450/red/white?text=YANG+1",
+      image: "/img/player-detail-photo1.png",
       name: "양현종 1",
     },
     {
       id: 2,
-      image: "https://placehold.co/300x450/black/white?text=YANG+2",
+      image: "/img/player-detail-photo2.png",
       name: "양현종 2",
     },
     {
       id: 3,
-      image: "https://placehold.co/300x450/red/white?text=YANG+3",
+      image: "/img/player-detail-photo3.png",
       name: "양현종 3",
     },
   ];
@@ -177,12 +177,8 @@ const PlayerDetail = () => {
         <div className="inner">
           <h2 className="section-title card">PHOTO CARD</h2>
           <Swiper
-            spaceBetween={16}
+            spaceBetween={12}
             slidesPerView={2.2}
-            breakpoints={{
-              640: { slidesPerView: 3.2 },
-              1024: { slidesPerView: 4.2 },
-            }}
             className="photo-card-swiper"
           >
             {cards.map((card) => (
