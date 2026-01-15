@@ -1,14 +1,16 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Splash from "./pages/Splash";
-import Onboarding from "./pages/Onboarding";
-import Home from "./pages/Home";
-import Stadium from "./pages/Stadium";
-import StadiumPgSeat from "./pages/StadiumPgSeat";
-import Ground from "./pages/Ground";
-import Lockerroom from "./pages/Lockerroom";
-import PlayerDetail from "./pages/PlayerDetail";
+import Splash from "./pages/onboardingpg/Splash";
+import Onboarding from "./pages/onboardingpg/Onboarding";
+import Home from "./pages/homepg/Home";
+import Stadium from "./pages/stadiumpg/Stadium";
+import StadiumPgSeat from "./pages/stadiumpg/StadiumPgSeat";
+import Ground from "./pages/groundpg/Ground";
+import Lockerroom from "./pages/lockerroompg/Lockerroom";
+import PlayerDetail from "./pages/homepg/PlayerDetail";
+import TeamRank from "./pages/homepg/TeamRank";
+import StadiumSeatDetail from "./pages/stadiumpg/StadiumSeatDetail";
 
 const App = () => {
   return (
@@ -20,9 +22,11 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="stadium" element={<Stadium />} />
         <Route path="stadium/seat" element={<StadiumPgSeat />} />
+        <Route path="/stadium/seat/section" element={<StadiumSeatDetail />} />
         <Route path="ground" element={<Ground />} />
         <Route path="lockerroom" element={<Lockerroom />} />
         <Route path="player/:id" element={<PlayerDetail />} />
+        <Route path="teamrank" element={<TeamRank />} />
       </Route>
     </Routes>
   );
