@@ -36,13 +36,6 @@ const Stadium = () => {
   const [seatType, setSeatType] = useState(null);
   const [zone, setZone] = useState(null);
 
-  useEffect(() => {
-    if (sheetOpen) {
-      setSeatType(null);
-      setZone(null);
-    }
-  }, [sheetOpen]);
-
   const seatTypeOptions = [
     "프리미엄석",
     "테이블석",
@@ -209,6 +202,9 @@ const Stadium = () => {
                       e.stopPropagation();
                       setStadiumName(name);
                       setStadiumOpen(false);
+
+                      setSeatType(null);
+                      setZone(null);
                     }}
                   >
                     {name}
