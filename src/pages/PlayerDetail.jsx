@@ -17,6 +17,8 @@ const PlayerDetail = () => {
       img: "/img/card_yang.svg",
       desc: "타이거즈의 영원한 에이스, 대투수 양현종. 마운드 위에서의 존재감은 타의 추종을 불허한다.",
       stats: { era: "3.54", win: 12, so: 140 },
+      graphData: [15, 25, 35, 45, 35, 55, 60],
+      lastGraphValue: "66%",
       detailStats: [
         { title: "WINS", value: "186", bg: "/img/player-detail-statbg1.png" },
         { title: "GAMES", value: "543", bg: "/img/player-detail-statbg2.png" },
@@ -32,7 +34,7 @@ const PlayerDetail = () => {
           bg: "/img/player-detail-statbg5.png",
         },
         {
-          title: "STRIKEOUTS",
+          title: "STRIKE OUTS",
           value: "2,185",
           bg: "/img/player-detail-statbg6.png",
         },
@@ -123,6 +125,35 @@ const PlayerDetail = () => {
             ))}
         </div>
       </section>
+
+      {/* 🔥 [추가된 부분] LEGEND SCALE 그래프 섹션 🔥 */}
+      {/* 데이터가 있는 경우에만 렌더링 (양현종만 뜨게 됨) */}
+      {player.graphData && (
+        <section className="legend-scale-section">
+          <div className="scale-inner">
+            <div className="text-group">
+              <h2 className="section-title scale">LEGEND SCALE</h2>
+              <p className="sub-description">오랜시간 쌓아온 레전드 스케일</p>
+            </div>
+
+            <div className="chart-container">
+              {/* 일반 막대들 반복 */}
+              {player.graphData.map((height, index) => (
+                <div
+                  key={index}
+                  className="bar"
+                  style={{ "--h": `${height}%` }} // React 스타일 문법 주의!
+                ></div>
+              ))}
+
+              {/* 마지막 강조 막대 */}
+              <div className="bar highlight" style={{ "--h": "80%" }}>
+                <span className="percent-label">{player.lastGraphValue}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };
