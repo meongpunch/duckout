@@ -78,6 +78,8 @@
 .podiumCard.second {
   height: 186px;
   opacity: 0.92;
+  justify-content: flex-start; /* 중앙 → 위 기준 */
+  padding-top: 18px;
 }
 
 .podiumCard.center {
@@ -88,11 +90,15 @@
     rgba(160, 0, 0, 0.95),
     rgba(120, 0, 0, 0.95)
   );
+  justify-content: flex-start; /* 중앙 → 위 기준 */
+  padding-top: 20px;
 }
 
 .podiumCard.third {
   height: 150px;
   opacity: 0.92;
+  justify-content: flex-start; /* 중앙 → 위 기준 */
+  padding-top: 14px;
 }
 
 .podiumLogo {
@@ -131,7 +137,7 @@
   width: 100%;
   height: 183px;
   border-radius: 6px;
-  padding: 18px 18px 16px;
+  padding: 20px 30px;
   overflow: hidden;
 
   /* ✅ bg 이미지는 JSX inline style로 주고, 여기서는 공통 옵션만 */
@@ -166,12 +172,12 @@
 .rankTop {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .rankTopLeft {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 19px;
   min-width: 0;
 }
@@ -186,7 +192,7 @@
 .rankTitleBlock {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   min-width: 0;
 }
 
@@ -203,7 +209,7 @@
 .rankSub {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   opacity: 0.95;
 }
 
@@ -251,9 +257,8 @@
 .rankNum {
   font-family: "Angkor", sans-serif;
   font-size: 36px;
-  font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.32;
 }
 
 .rankUnit {
@@ -274,6 +279,14 @@
   display: flex;
   flex-direction: column;
   gap: 11px;
+}
+
+/* 오른쪽 statCol(두 번째 컬럼) 안에서 값은 가운데 */
+.statCol:last-child .statVal {
+  margin-left: auto;
+  margin-right: auto; /* ✅ 가운데 */
+  justify-content: center;
+  text-align: center;
 }
 
 .statRow {
