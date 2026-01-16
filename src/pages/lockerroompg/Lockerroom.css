@@ -1,5 +1,6 @@
 .profile {
-  margin: 16px;
+  margin: 0 16px 72px;
+
 }
 .profile .inner {
   margin: 0 auto;
@@ -169,7 +170,7 @@
 /* 숫자 부분 */
 .cal-page {
   display: flex;
-  align-items: center;
+  align-items: center;`
   gap: 8px;
   opacity: 0.95;
 }
