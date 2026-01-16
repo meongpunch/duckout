@@ -272,19 +272,23 @@
 
 }
 
-/* 서비스 2열 */
+/* 서비스 2열  */
 .service-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 18px;
 }
+
 
 .service-item{
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #fff;
-  margin-bottom: 18px;
 }
+
+
+
 
 .service-item .menu-icon{ margin-right: 12px; }
 

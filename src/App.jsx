@@ -11,14 +11,13 @@ import Lockerroom from "./pages/lockerroompg/Lockerroom";
 import PlayerDetail from "./pages/homepg/PlayerDetail";
 import TeamRank from "./pages/homepg/TeamRank";
 import StadiumSeatDetail from "./pages/stadiumpg/StadiumSeatDetail";
-import Login from "./pages/onboardingpg/Login";
+import TodayQuiz from "./pages/homepg/TodayQuiz";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/splash" element={<Splash />} />
       <Route path="/onboarding" element={<Onboarding />} />
-      <Route path="/login" element={<Login />} />
 
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -29,8 +28,7 @@ const App = () => {
         <Route path="lockerroom" element={<Lockerroom />} />
         <Route path="player/:id" element={<PlayerDetail />} />
         <Route path="teamrank" element={<TeamRank />} />
-         <Route path="/" element={<Splash />} />
-
+        <Route path="Quiz" element={<TodayQuiz />} />
       </Route>
     </Routes>
   );
