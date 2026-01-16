@@ -54,6 +54,27 @@ const Lockerroom = () => {
   { label: "하이라이트 모아보기", icon: "/img/lockerroom-highlight.svg" },
   ];
 
+  const orderMenus = [
+  { label: "구매 내역", icon: "/img/lockerroom-orders.svg", to: "" },
+  { label: "찜 목록", icon: "/img/lockerroom-wishlist.svg", to: "" },
+  { label: "주소 관리", icon: "/img/lockerroom-pin.svg", to: "" },
+  { label: "이벤트", icon: "/img/lockerroom-event.svg", to: "" },
+  ];
+
+const myContentMenus = [
+  { label: "내가 작성한 게시글", icon: "/img/lockerroom-my-post.svg", to: "" },
+  { label: "좋아요한 게시글", icon: "/img/lockerroom-liked.svg", to: "" },
+  { label: "직관 기록", icon: "/img/lockerroom-attendance.svg", to: "" },
+  { label: "퀴즈 · 참여 기록", icon: "/img/lockerroom-quizhistory.svg", to: "" },
+  ];
+
+const csMenus = [
+  { label: "공지사항", icon: "/img/lockerroom-notices.svg", to: "" },
+  { label: "고객센터", icon: "/img/lockerroom-support.svg", to: "" },
+  { label: "문의하기", icon: "/img/lockerroom-contact.svg", to: "" },
+  { label: "약관 및 정책", icon: "/img/lockerroom-Legal.svg", to: "" },
+  ];
+
   return (
     <div className="locker-room-container">
       <MainPgHeader logoType="logo" btnType="setting" />
@@ -162,8 +183,6 @@ const Lockerroom = () => {
               <Link key={m.label} to={""} className="quick-item">
                 <img className="menu-icon" src={m.icon} alt="" />
                 <span className="menu-text">{m.label}</span>
-
-                {idx !== quickMenus.length - 1 && <span className="menu-divider" />}
               </Link>
             ))}
           </div>
@@ -172,7 +191,7 @@ const Lockerroom = () => {
           <div className="menu-card service-card">
             <div className="card-header">
               <h3 className="card-title">서비스</h3>
-              <img className="chevron" src="/img/ic-chevron-right.svg" alt="" />
+              <img className="chevron" src="/img/lockerroom-meun-chevron.svg" alt="" />
             </div>
 
             <div className="service-grid">
@@ -183,6 +202,54 @@ const Lockerroom = () => {
                 </Link>
               ))}
             </div>
+          </div>
+
+          {/* 주문·배송 관리 카드 */}
+          <div className="menu-card list-card">
+            <h3 className="card-title">주문·배송 관리</h3>
+
+            <ul className="list-menu">
+              {orderMenus.map((m) => (
+                <li key={m.label}>
+                  <Link to={m.to || ""} className="list-item" onClick={(e)=>e.preventDefault()}>
+                    <img className="menu-icon" src={m.icon} alt="" />
+                    <span className="menu-text">{m.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 나의 콘텐츠 카드 */}
+          <div className="menu-card list-card">
+            <h3 className="card-title">나의 콘텐츠</h3>
+
+            <ul className="list-menu">
+              {myContentMenus.map((m) => (
+                <li key={m.label}>
+                  <Link to={m.to || ""} className="list-item" onClick={(e)=>e.preventDefault()}>
+                    <img className="menu-icon" src={m.icon} alt="" />
+                    <span className="menu-text">{m.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 고객지원 카드 */}
+          <div className="menu-card list-card">
+            <h3 className="card-title">고객지원</h3>
+
+            <ul className="list-menu">
+              {csMenus.map((m) => (
+                <li key={m.label}>
+                  <Link to={m.to || ""} className="list-item" onClick={(e)=>e.preventDefault()}>
+                    <img className="menu-icon" src={m.icon} alt="" />
+                    <span className="menu-text">{m.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
 
