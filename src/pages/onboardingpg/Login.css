@@ -2,8 +2,7 @@
 
 .login{ position: relative; height: 100vh; overflow: hidden; background: #000; color: #fff;}
 
-.login h2 {color: fff;}
-.point {font-size: 75px; letter-spacing: 1.2px;}
+.login-tit {font-size: 75px; letter-spacing: 1.2px;}
 
 .login-bg{
   position: absolute;
