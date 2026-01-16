@@ -16,15 +16,18 @@ import ScrollToTop from "./components/ScrollToTop";
 import Md from "./pages/homepg/Md";
 import LockerroomEditProfile from "./pages/lockerroompg/LockerroomEditProfile";
 import Login from "./pages/onboardingpg/Login";
+import TeamChoice from "./pages/onboardingpg/TeamChoice";
 
 const App = () => {
-  return (
+  return ( 
     <>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/splash" element={<Splash />} />
-        <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="/login" element={<Login />} />
+    <ScrollToTop />
+    <Routes>
+      <Route path="/splash" element={<Splash />} />
+      <Route path="/onboarding" element={<Onboarding />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/TeamChoice" element={<TeamChoice />} />
+
 
         <Route path="/stadium" element={<Stadium />} />
         <Route path="/stadium/seat" element={<StadiumPgSeat />} />
