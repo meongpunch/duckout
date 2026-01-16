@@ -39,6 +39,21 @@ const Lockerroom = () => {
     { id: 6, img: "/img/lockerroom-calendar.png", name: "game6" },
   ];
 
+  const quickMenus = [
+  { label: "구단 순위", icon: "/img/lockerroom-club-ranking.svg", to: "null" },
+  { label: "내가 쓴 글", icon: "/img/lockerroom-my-post.svg", to: "null" },
+  { label: "하이라이트", icon: "/img/lockerroom-highlight.svg", to: "null" },
+  ];
+
+  const serviceMenus = [
+  { label: "스타디움", icon: "/img/lockerroom-stadium.svg"},
+  { label: "그라운드", icon: "/img/lockerroom-ground.svg"},
+  { label: "경기 일정", icon: "/img/lockerroom-Schedule.svg" },
+  { label: "기록 & 스탯 분석", icon: "/img/lockerroom-stats.svg" },
+  { label: "구매 내역", icon: "/img/lockerroom-orders.svg" },
+  { label: "하이라이트 모아보기", icon: "/img/lockerroom-highlight.svg" },
+  ];
+
   return (
     <div className="locker-room-container">
       <MainPgHeader logoType="logo" btnType="setting" />
@@ -46,7 +61,6 @@ const Lockerroom = () => {
       {/* 프로필 카드 */}
       <section className="profile">
         <div className="inner">
-
           <div className="profile-top-text">
             <div className="user-profile">
               <div className="profile-img">
@@ -72,9 +86,10 @@ const Lockerroom = () => {
           </div>
         </div>
       </section>
-
+      
+      {/* 직관 캘린더 */}
       <section className="calendar">
-        <h2 className="title">직관 캘린더</h2>
+        <h2 className="section-title">직관 캘린더</h2>
         <div className="hero-swiper-wrap">
           <Swiper
             onSwiper={(s) => {
@@ -134,6 +149,44 @@ const Lockerroom = () => {
               <img src="/img/lockerroom-chevron.svg" alt="" />
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* 메뉴 */}
+      <section className="locker-menu">
+        <div className="inner">
+
+          {/* 상단 퀵메뉴 카드 */}
+          <div className="menu-card quick-menu">
+            {quickMenus.map((m, idx) => (
+              <Link key={m.label} to={""} className="quick-item">
+                <img className="menu-icon" src={m.icon} alt="" />
+                <span className="menu-text">{m.label}</span>
+
+                {idx !== quickMenus.length - 1 && <span className="menu-divider" />}
+              </Link>
+            ))}
+          </div>
+
+          {/* 서비스 카드 */}
+          <div className="menu-card service-card">
+            <div className="card-header">
+              <h3 className="card-title">서비스</h3>
+              <img className="chevron" src="/img/ic-chevron-right.svg" alt="" />
+            </div>
+
+            <div className="service-grid">
+              {serviceMenus.map((m) => (
+                <Link key={m.label} to={""} className="service-item">
+                  <img className="menu-icon" src={m.icon} alt="" />
+                  <span className="menu-text">{m.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+
+
         </div>
       </section>
     </div>

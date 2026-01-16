@@ -1,9 +1,9 @@
 .profile {
-  margin: 0 16px 72px;
+  margin: 0 16px 72px; 
 
 }
 .profile .inner {
-  margin: 0 auto;
+  margin: 0 auto; 
   padding: 31px 0;
   width: 100%;
   background-image: url(/img/lockerroom-bg.png);
@@ -69,8 +69,7 @@
 }
 
 /* 캘린더 섹션 */
-.calendar .title {
-  font-size: 28px;
+.calendar .section-title {
   margin: 0 16px 32px;
 }
 
@@ -170,7 +169,7 @@
 /* 숫자 부분 */
 .cal-page {
   display: flex;
-  align-items: center;`
+  align-items: center;
   gap: 8px;
   opacity: 0.95;
 }
@@ -191,3 +190,4 @@
   font-size: 14px;
   opacity: 0.8;
 }
+
