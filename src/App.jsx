@@ -17,17 +17,17 @@ import Md from "./pages/homepg/Md";
 import LockerroomEditProfile from "./pages/lockerroompg/LockerroomEditProfile";
 import Login from "./pages/onboardingpg/Login";
 import TeamChoice from "./pages/onboardingpg/TeamChoice";
+import GroundTopic from "./pages/groundpg/GroundTopic";
 
 const App = () => {
-  return ( 
+  return (
     <>
-    <ScrollToTop />
-    <Routes>
-      <Route path="/splash" element={<Splash />} />
-      <Route path="/onboarding" element={<Onboarding />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/TeamChoice" element={<TeamChoice />} />
-
+      <ScrollToTop />
+      <Routes>
+        <Route path="/splash" element={<Splash />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/TeamChoice" element={<TeamChoice />} />
 
         <Route path="/stadium" element={<Stadium />} />
         <Route path="/stadium/seat" element={<StadiumPgSeat />} />
@@ -37,6 +37,7 @@ const App = () => {
           <Route index element={<Home />} />
 
           <Route path="/ground" element={<Ground />} />
+          <Route path="/topic" element={<GroundTopic />} />
           <Route path="/lockerroom" element={<Lockerroom />} />
           <Route path="/player/:id" element={<PlayerDetail />} />
           <Route path="/teamrank" element={<TeamRank />} />
