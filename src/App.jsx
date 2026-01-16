@@ -11,6 +11,10 @@ import Lockerroom from "./pages/lockerroompg/Lockerroom";
 import PlayerDetail from "./pages/homepg/PlayerDetail";
 import TeamRank from "./pages/homepg/TeamRank";
 import StadiumSeatDetail from "./pages/stadiumpg/StadiumSeatDetail";
+import TodayQuiz from "./pages/homepg/TodayQuiz";
+import ScrollToTop from "./components/ScrollToTop";
+import Md from "./pages/homepg/Md";
+import LockerroomEditProfile from "./pages/lockerroompg/LockerroomEditProfile";
 import Login from "./pages/onboardingpg/Login";
 import TeamChoice from "./pages/onboardingpg/TeamChoice";
 
@@ -23,19 +27,23 @@ const App = () => {
       <Route path="/TeamChoice" element={<TeamChoice />} />
 
 
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="stadium" element={<Stadium />} />
-        <Route path="stadium/seat" element={<StadiumPgSeat />} />
+        <Route path="/stadium" element={<Stadium />} />
+        <Route path="/stadium/seat" element={<StadiumPgSeat />} />
         <Route path="/stadium/seat/section" element={<StadiumSeatDetail />} />
-        <Route path="ground" element={<Ground />} />
-        <Route path="lockerroom" element={<Lockerroom />} />
-        <Route path="player/:id" element={<PlayerDetail />} />
-        <Route path="teamrank" element={<TeamRank />} />
-         <Route path="/" element={<Splash />} />
 
-      </Route>
-    </Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+
+          <Route path="/ground" element={<Ground />} />
+          <Route path="/lockerroom" element={<Lockerroom />} />
+          <Route path="/player/:id" element={<PlayerDetail />} />
+          <Route path="/teamrank" element={<TeamRank />} />
+          <Route path="/Quiz" element={<TodayQuiz />} />
+          <Route path="/shop" element={<Md />} />
+          <Route path="/lockerroom/edit" element={<LockerroomEditProfile />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

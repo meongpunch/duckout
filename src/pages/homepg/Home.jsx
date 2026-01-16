@@ -57,24 +57,37 @@ const Home = () => {
     },
   ];
   // 응원 댓극 데이터
-  const commentsTop = [
-    { id: 1, text: "양현종 없으면 야구 안 봄", user: "/img/user_1.svg" },
+  const rawCommentsTop = [
+    { id: 1, text: "가을야구 확정!", user: "/img/user_1.svg" },
     { id: 2, text: "타이거즈는 이름부터 다름", user: "/img/user_2.svg" },
     { id: 3, text: "V13 가자 제발", user: "/img/user_3.svg" },
     { id: 4, text: "레스고~", user: "/img/user_4.svg" },
     { id: 5, text: "이겨보자", user: "/img/user_5.svg" },
   ];
 
-  const commentsBottom = [
-    { id: 6, text: "가을야구 확정!", user: "/img/user_6.svg" },
+  const rawCommentsBottom = [
+    { id: 6, text: "양현종 없으면 야구 안 봄", user: "/img/user_6.svg" },
     { id: 7, text: "니땜시살어야", user: "/img/user_7.svg" },
     { id: 8, text: "오선우 파이팅", user: "/img/user_8.svg" },
     {
       id: 9,
-      text: "승리하라 최강기아 열광하라 타이거즈",
+      text: "열광하라 타이거즈",
       user: "/img/user_9.svg",
     },
     { id: 10, text: "최강기아 타이거즈", user: "/img/user_10.svg" },
+  ];
+
+  const commentsTop = [
+    ...rawCommentsTop,
+    ...rawCommentsTop,
+    ...rawCommentsTop,
+    ...rawCommentsTop,
+  ];
+  const commentsBottom = [
+    ...rawCommentsBottom,
+    ...rawCommentsBottom,
+    ...rawCommentsBottom,
+    ...rawCommentsBottom,
   ];
   const [activePlayer, setActivePlayer] = useState(players[0]);
 
@@ -198,9 +211,10 @@ const Home = () => {
         <div className="comment-container">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={10}
+            spaceBetween={8}
             slidesPerView={"auto"}
             loop={true}
+            loopedSlides={10}
             speed={1000}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             className="comment-swiper"
@@ -219,9 +233,10 @@ const Home = () => {
           </Swiper>
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={10}
+            spaceBetween={8}
             slidesPerView={"auto"}
             loop={true}
+            loopedSlides={10}
             speed={1000}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             className="comment-swiper row-2"
@@ -254,7 +269,10 @@ const Home = () => {
               <div className="score-board">
                 <div className="team">
                   <div className="logo-circle samsung">
-                    <img src="/img/samsung_logo.svg" alt="상성 라이온즈 로고" />
+                    <img
+                      src="/img/Home_highlight_samsung_logo.svg"
+                      alt="상성 라이온즈 로고"
+                    />
                   </div>
                   <span className="team-name">SAMSUNG</span>
                 </div>
@@ -264,7 +282,10 @@ const Home = () => {
                 </div>
                 <div className="team">
                   <div className="logo-circle samsung">
-                    <img src="/img/KIA_logo.svg" alt="상성 라이온즈 로고" />
+                    <img
+                      src="/img/Home_highlight_KiA_logo.svg"
+                      alt="상성 라이온즈 로고"
+                    />
                   </div>
                   <span className="team-name">KIA</span>
                 </div>
