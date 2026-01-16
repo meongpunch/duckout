@@ -14,6 +14,7 @@ import StadiumSeatDetail from "./pages/stadiumpg/StadiumSeatDetail";
 import TodayQuiz from "./pages/homepg/TodayQuiz";
 import ScrollToTop from "./components/ScrollToTop";
 import Md from "./pages/homepg/Md";
+import LockerroomEditProfile from "./pages/lockerroompg/LockerroomEditProfile";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/teamrank" element={<TeamRank />} />
           <Route path="/Quiz" element={<TodayQuiz />} />
           <Route path="/shop" element={<Md />} />
+          <Route path="/lockerroom/edit" element={<LockerroomEditProfile />} />
         </Route>
       </Routes>
     </>

@@ -191,3 +191,120 @@
   opacity: 0.8;
 }
 
+
+/* 메뉴 */
+.locker-menu .inner{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;   /* 카드 사이 기본 간격 */
+}
+/* 카드 공통 */
+.menu-card{
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 20px 16px;
+  color: #fff;
+}
+
+
+.menu-card.quick-menu{
+  padding: 16px;
+  margin-bottom: 0;
+}
+
+.menu-card.quick-menu {
+  margin-bottom: 30px; /* 필요하면 조절 */
+}
+
+/* 상단 퀵메뉴 */
+.quick-menu{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.quick-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.quick-item .menu-icon{ margin-bottom: 8px; }
+
+/* 구분선 */
+.quick-item:not(:last-child)::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 1px;
+  height: 26px;
+  background: rgba(217, 217, 217, 0.4);
+  transform: translateY(-50%);
+}
+
+/* 아이콘 + 텍스트 */
+.menu-icon{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.menu-text{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 서비스 카드 */
+.card-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.locker-menu .card-title{
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+
+/* 서비스 2열  */
+.service-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 18px;
+}
+
+
+.service-item{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+
+.service-item .menu-icon{ margin-right: 12px; }
+
+/* 리스트형 카드 (주문/나의콘텐츠/고객지원) */
+.list-menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  row-gap: 18px;
+}
+
+.list-item{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+}
