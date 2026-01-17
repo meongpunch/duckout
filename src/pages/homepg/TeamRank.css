@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   color: #fff;
-  padding-bottom: 90px;
+
 
   background: url("/img/rank-baseball-bg.png") no-repeat left 0px top 246px;
   background-size: 364px auto;
@@ -223,7 +223,9 @@
 
 /* 우측 (▲/▼/— + 1 위) */
 .rankTopRight {
+  width: 97.5px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   margin-top: 6px;
