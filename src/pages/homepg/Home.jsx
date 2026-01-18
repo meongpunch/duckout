@@ -147,12 +147,12 @@ const Home = () => {
     setIsLiked(!isLiked);
   };
 
-// Quiz 타이머
+  // Quiz 타이머
   const [timeLeft, setTimeLeft] = useState(4297);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0)); 
+      setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
 
     return () => clearInterval(timer);
@@ -211,8 +211,8 @@ const Home = () => {
             modules={[EffectCoverflow]}
             className="mySwiper"
           >
-            {players.map((player) => (
-              <SwiperSlide key={player.id} className="hero-slide">
+            {players.map((player, index) => (
+              <SwiperSlide key={`hero-${player.id}-${index}`} className="hero-slide">
                 {/* 카드 클릭 시 상세 페이지 이동 */}
                 <Link to={`/player/${player.id}`} className="card-link">
                   <div
@@ -237,7 +237,7 @@ const Home = () => {
             spaceBetween={8}
             slidesPerView={"auto"}
             loop={true}
-            loopedSlides={10}
+
             speed={1000}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             className="comment-swiper"
@@ -259,14 +259,14 @@ const Home = () => {
             spaceBetween={8}
             slidesPerView={"auto"}
             loop={true}
-            loopedSlides={10}
+
             speed={1000}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             className="comment-swiper row-2"
             allowTouchMove={true}
           >
-            {commentsBottom.map((comment) => (
-              <SwiperSlide key={`row2-${comment.id}`} className="comment-slide">
+            {commentsBottom.map((comment, index) => (
+              <SwiperSlide key={`row2-${index}`} className="comment-slide">
                 <div className="comment-bubble">
                   <div className="profile-circle">
                     <img src={comment.user} alt="user" />
@@ -330,10 +330,11 @@ const Home = () => {
           <div className="highlight-grid">
             {highlights.map((item) => (
               <a
+                key={item.id}
                 href="https://www.youtube.com/shorts/CWDAbmIgfvA"
                 target="blank"
               >
-                <div key={item.id} className="highlight-card">
+                <div className="highlight-card">
                   <div className="img-box box">
                     <img src={item.img} alt={item.title} />
                   </div>
