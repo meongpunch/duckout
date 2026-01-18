@@ -12,7 +12,10 @@
   color: #fff;
 }
 
-.login-tit {font-size: 75px; letter-spacing: 1.2px;}
+.login-tit {
+  font-size: 75px;
+  letter-spacing: 1.2px;
+}
 
 .login-bg {
   position: absolute;
@@ -74,9 +77,14 @@
 
 .login-icon {
   position: absolute;
-  left: 16px;
-  width: 18px;
-  height: 18px;
+  left: 30px;
+
+  width: 22px; /* 18 → 22 */
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-btn.kakao {
