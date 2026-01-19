@@ -212,7 +212,10 @@ const Home = () => {
             className="mySwiper"
           >
             {players.map((player, index) => (
-              <SwiperSlide key={`hero-${player.id}-${index}`} className="hero-slide">
+              <SwiperSlide
+                key={`hero-${player.id}-${index}`}
+                className="hero-slide"
+              >
                 {/* 카드 클릭 시 상세 페이지 이동 */}
                 <Link to={`/player/${player.id}`} className="card-link">
                   <div
@@ -237,7 +240,6 @@ const Home = () => {
             spaceBetween={8}
             slidesPerView={"auto"}
             loop={true}
-
             speed={1000}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             className="comment-swiper"
@@ -259,7 +261,6 @@ const Home = () => {
             spaceBetween={8}
             slidesPerView={"auto"}
             loop={true}
-
             speed={1000}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             className="comment-swiper row-2"
