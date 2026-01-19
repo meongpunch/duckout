@@ -21,6 +21,7 @@ import GroundTopic from "./pages/groundpg/GroundTopic";
 import StadiumPgReview from "./pages/stadiumpg/StadiumPgReview";
 import OnboardingTopBar from "./components/OnboardingTopBar";
 import Calendar from "./pages/lockerroompg/Calendar";
+import Review from "./pages/lockerroompg/Review";
 
 const App = () => {
   return (
@@ -31,8 +32,9 @@ const App = () => {
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/login" element={<Login />} />
         <Route path="/TeamChoice" element={<TeamChoice />} />
-        <Route path="/onboardingtopbar" element={<OnboardingTopBar iconType="back" skipType="skip" />}
-/>
+        <Route path="/onboardingtopbar" element={<OnboardingTopBar iconType="back" skipType="skip" />} />
+        <Route path="/lockerroom/review" element={<Review />} />
+
 
         <Route path="/stadium" element={<Stadium />} />
         <Route path="/stadium/seat" element={<StadiumPgSeat />} />

@@ -1,0 +1,133 @@
+.review-head {margin: 60px 0 36px ;}
+.review-head .review-top {display: flex; justify-content: space-between; align-items: center;}
+.review-head .review-top .review-left {display: flex; justify-content: space-between; align-items: center;}
+.review-head .review-top .review-left .thumb {width: 56px;height: 56px; border-radius: 6px; margin-right: 8px; overflow: hidden; box-sizing: border-box;}
+.review-head .review-top .review-left .reviewTop-txt .season{
+    font-size: 24px; 
+    font-weight: 600;
+}
+.review-head .review-top .review-left .reviewTop-txt .count{
+    font-size: 18px; 
+    font-weight: 500;
+}
+.review-head .review-top .review-close{
+    cursor: pointer;
+}
+
+.matchCard{
+    margin-bottom: 40px;
+}
+
+.match-info{
+    padding: 30px 16px;
+    background: #242424;
+    border-radius: 6px;
+    margin-bottom: 40px;
+}
+.matchCard .match-team{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.matchCard .match-team .team-name{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+}
+.matchCard .match-team .vs{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 12px;
+    color:rgba(255,255,255,0.7)
+}
+
+.matchCard .meta{
+    display: flex;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.matchCard .meta .match-time{
+    margin-left: 12px;
+    color: rgba(255,255,255,0.7);
+}
+
+.matchCard .seat{
+    display: flex;
+    font-size: 16px;
+}
+.matchCard .seat .number{
+    margin-left: 12px;
+}
+
+
+.seatKeyword{
+    margin-bottom: 42px;
+}
+
+.seatKeyword-box{
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 18px 16px;
+}
+
+.seatKeyword-title{
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.seatKeyword-sub{
+  margin-bottom: 28px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ====== 리스트 ====== */
+.seatKeyword-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ====== span 칩 ====== */
+.seatKeyword-chip{
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  height: 34px;
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  border: 2px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);   /* ✅ 기본 배경(살짝 어두운 회색 톤) */
+  color: #fff;
+
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+}
+
+.seatKeyword-chip-txt{
+    font-size: 14px;
+}
+
+.seatKeyword-chip-ic{
+    font-size: 14px;
+}
+
+/* 선택된 상태 */
+.seatKeyword-chip.is-active{
+  background: #aa0000;                 /* ✅ 단색 */
+  border-color: #bb3333;;               /* ✅ 테두리도 같이 */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* hover */
+.seatKeyword-chip:active{
+  transform: scale(0.98);
+}
+
+

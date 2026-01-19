@@ -16,8 +16,7 @@ const TIMELINE_ITEMS = [
     time: "14:00",
     meta: "2차전 • 96번째 경기",
     seat: "3루 블루석 116블록 4열 40번",
-    reviewLink: "/lockerroom/review/2026-07-11",
-    hasReview: false,
+    reviewLink: "/lockerroom/review",
   },
   {
     id: "2",
@@ -30,8 +29,7 @@ const TIMELINE_ITEMS = [
     time: "14:00",
     meta: "2차전 • 96번째 경기",
     seat: "3루 블루석 116블록 4열 40번",
-    reviewLink: "/lockerroom/review/2026-07-11-2",
-    hasReview: true,
+    reviewLink: "/lockerroom/review",
   },
   {
     id: "3",
@@ -44,8 +42,7 @@ const TIMELINE_ITEMS = [
     time: "18:30",
     meta: "2차전 • 96번째 경기",
     seat: "1루 테이블석 10블록 2열 5번",
-    reviewLink: "/lockerroom/review/2026-07-05",
-    hasReview: false,
+    reviewLink: "/lockerroom/review",
   },
 ];
 
