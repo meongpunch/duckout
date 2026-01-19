@@ -1,4 +1,5 @@
 .stadium-main {
+  margin-bottom: 0;
   position: relative;
   width: 100%;
   height: calc(100vh - 106px);
@@ -6,7 +7,7 @@
   padding: 0;
 }
 
-.stadium-headerOverlay{
+.stadium-headerOverlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,10 +29,13 @@
 }
 
 .stadium-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
   inset: 0;
-  background: url("/img/stadium-main-image.jpg") no-repeat center/cover;
   z-index: 0;
+  transition: opacity 0.25s ease;
 }
 
 .stadium-bg .inner {
@@ -50,7 +54,7 @@
 }
 
 .topbar-location {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -60,33 +64,44 @@
 }
 
 .chevron-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   margin-left: 10px;
   transition: transform 0.2s ease;
 }
 
 .stadium-dropdown {
   position: absolute;
-  top: 110%;
+  top: 105%;
   left: 0;
   width: 200px;
   padding: 20px 10px 0;
   border-radius: 6px;
-  background: #151515;
+  background: #111;
   z-index: 50;
   margin: 0 16px;
 }
 
 .stadium-option {
   width: 100%;
-  font-size: 18px;
-  padding-bottom: 20px;
-  border: 0;
-  background: transparent;
   text-align: left;
+  padding-bottom: 16px;
+  background: transparent;
+  border: 0;
+  color: rgb(255, 255, 255, 0.7);
+  font-size: 16px;
   cursor: pointer;
+}
+
+.stadium-option.active {
   color: #fff;
+  font-weight: 700;
+}
+
+/* hover된 것만 강조 */
+.stadium-option:hover {
+  color: #fff;
+  font-weight: 700;
 }
 
 .topbar-location.is-open .chevron-icon {
@@ -121,7 +136,7 @@
 }
 
 .bottom-box.open {
-  height: calc(100vh - 8vh);
+  height: calc(100vh - 5vh);
   overflow-y: auto;
 }
 
@@ -159,7 +174,7 @@
 
 .bottom-box .sheet-title {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: bold;
   color: #fff;
   margin-bottom: 15px;
 }
@@ -179,6 +194,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
+  margin-bottom: 51px;
 }
 
 .sheet-grid:first-of-type {
@@ -189,18 +205,13 @@
   width: 126px;
   height: 81px;
   border-radius: 6px;
-  background: #1f1f1f;
-  color: #eaeaea;
-  font-size: 14px;
+  background: #1d1d1d;
+  color: #ffffff;
+  font-size: 16px;
   border: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
-  padding: 0 10px;
-  transition: background 0.18s ease, transform 0.18s ease;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
 }
 
 .chip:hover {
@@ -220,22 +231,6 @@
 .sheet-body {
   display: flex;
   flex-direction: column;
-}
-
-.confirm {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 154px;
-  height: 38px;
-  min-height: 38px;
-  line-height: 38px;
-  margin: 50px auto 28px;
-  border-radius: 20px;
-  border: none;
-  background: #1f1f1f;
-  color: #ddd;
-  font-size: 14px;
 }
 
 .confirm:not(:disabled) {

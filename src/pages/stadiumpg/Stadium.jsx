@@ -18,11 +18,28 @@ const Stadium = () => {
   }, []);
 
   const [stadiumOpen, setStadiumOpen] = useState(false);
-  const [stadiumName, setStadiumName] = useState("서울 잠실야구장");
+  const [stadiumName, setStadiumName] = useState("광주 챔피언스필드");
+
+  // ✅ 1) 맵을 먼저 선언 (stadiumBg가 이걸 쓰기 때문)
+  const stadiumBgMap = {
+    "광주 챔피언스필드": "/img/stadium-main-image-default.jpg",
+    "서울 잠실야구장": "/img/hye-feature.jpg",
+    "고척 스카이돔": "/img/stadium-main-image-3.jpg",
+    "대구 라이온즈파크": "/img/stadium-main-image-2.jpg",
+    "대전 한화생명 볼파크": "/img/stadium-main-image-3.jpg",
+    "부산 사직야구장": "/img/stadium-main-image-2.jpg",
+    "수원 KT위즈파크": "/img/stadium-main-image-3.jpg",
+    "인천 랜더스필드": "/img/stadium-main-image-2.jpg",
+    "창원 NC파크": "/img/stadium-main-image-3.jpg",
+  };
+
+  // ✅ 2) 그 다음에 배경 계산
+  const stadiumBg =
+    stadiumBgMap[stadiumName] ?? "/img/stadium-main-image-default.jpg";
 
   const stadiumOptions = [
-    "서울 잠실야구장",
     "광주 챔피언스필드",
+    "서울 잠실야구장",
     "고척 스카이돔",
     "대구 라이온즈파크",
     "대전 한화생명 볼파크",
@@ -71,7 +88,6 @@ const Stadium = () => {
   const DAMP = 0.15; // 손가락 대비 이동량 (무게감)
   const FOLLOW = 0.1; // 따라오는 속도 (부드러움)
   const THRESHOLD = 40;
-  const CLOSED_PX = 260;
 
   const onDragStart = (e) => {
     const y = "touches" in e ? e.touches[0].clientY : e.clientY;
@@ -156,18 +172,26 @@ const Stadium = () => {
   };
 
   return (
-<>
-  <section
-    className="stadium-main"
-    onClick={() => {
-      if (stadiumOpen) setStadiumOpen(false);
-    }}
-  >
-    {/* 헤더를 이미지 위로 올리는 래퍼 */}
-    <div className="stadium-headerOverlay" onClick={(e) => e.stopPropagation()}>
-      <MainPgHeader logoType="logo" btnType="ticket" />
-    </div>
-        <div className="stadium-bg">
+    <>
+      <section
+        className="stadium-main"
+        onClick={() => {
+          if (stadiumOpen) setStadiumOpen(false);
+        }}
+      >
+        {/* 헤더를 이미지 위로 올리는 래퍼 */}
+        <div
+          className="stadium-headerOverlay"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <MainPgHeader logoType="logo" btnType="ticket" />
+        </div>
+
+        {/* ✅ 배경은 여기에서만! (CSS에 background 고정값 있으면 제거) */}
+        <div
+          className="stadium-bg"
+          style={{ backgroundImage: `url(${stadiumBg})` }}
+        >
           <div className="inner">
             <div
               className="stadium-topbar"
@@ -290,6 +314,7 @@ const Stadium = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );

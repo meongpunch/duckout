@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./StadiumPgReview.css";
 import MainPgHeader from "../../components/MainPgHeader";
@@ -28,11 +28,13 @@ const mockReviews = [
     avatar: "/img/stadium-profile-1.svg",
     rating: 4.0,
     seatExp: "직관 8 · 잠실구장 방문 수 2",
-    imgs: ["/img/stadium-review-1.svg", "/img/stadium-review-1-1.svg"],
-    text:
-      "잠실은 두 번째 직관인데 야푸로 유명한 이유가 있네요 사실 이거 또 먹고 싶어서 야구보러 옴ㅋㅋㅎ 야구는 잘 모르지만 응원 열기가 뜨거워서 신나는 기분 내기 좋은 좌석이에요 굿굿👍",
+    imgs: [
+      "/img/stadium-review-1.svg",
+      "/img/stadium-review-1-1.svg",
+      "/img/stadium-review-1-2.svg",
+    ],
+    text: "잠실은 두 번째 직관인데 야푸로 유명한 이유가 있네요 사실 이거 또 먹고 싶어서 야구보러 옴ㅋㅋㅎ 야구는 잘 모르지만 응원 열기가 뜨거워서 신나는 기분 내기 좋은 좌석이에요 굿굿👍",
     chips: ["매점 가까워요", "응원하기 좋아요", "시야 좋아요"],
-    icon: ["🛒", "📣", "👀"],
     counts: { food: 123, family: 546, view: 1528 },
   },
   {
@@ -41,11 +43,13 @@ const mockReviews = [
     avatar: "/img/stadium-profile-2.svg",
     rating: 4.0,
     seatExp: "직관 8 · 잠실구장 방문 수 2",
-    imgs: ["/img/stadium-review-2.svg", "/img/stadium-review-2-1.svg"],
-    text:
-      "내야 외야 다 잘 보이는 최고 시야 자리.. 지금은 시원한데 한여름엔 더울 듯. 선수들 보기에는 거리가 조금 있지만 응원열기 느끼기에는 최고네요ㅎㅎ 근데 앉아 있을 새가 없어서 조금 힘들긴 함 😂 다음엔 응원단석이랑 조금 멀리 앉을 것 같아요",
+    imgs: [
+      "/img/stadium-review-2.svg",
+      "/img/stadium-review-2-1.svg",
+      "/img/stadium-review-2-2.svg",
+    ],
+    text: "내야 외야 다 잘 보이는 최고 시야 자리.. 지금은 시원한데 한여름엔 더울 듯. 선수들 보기에는 거리가 조금 있지만 응원열기 느끼기에는 최고네요ㅎㅎ 근데 앉아 있을 새가 없어서 조금 힘들긴 함 😂 다음엔 응원단석이랑 조금 멀리 앉을 것 같아요",
     chips: ["화장실 멀어요", "응원하기 좋아요", "매점 가까워요"],
-    icon: ["🚽", "📣", "🛒"],
     counts: { toilet: 905, family: 546, view: 1528 },
   },
   {
@@ -54,20 +58,97 @@ const mockReviews = [
     avatar: "/img/stadium-profile-3.svg",
     rating: 4.0,
     seatExp: "직관 8 · 잠실구장 방문 수 2",
-    imgs: ["/img/stadium-review-3.svg", "/img/stadium-review-3-1.svg"],
-    text:
-      "잠실구장 풍경 보고 싶고, 내야 외야 한 눈에 보고 싶고, 무엇보다 열정적으로🔥 응원하는 자리 좋아하는 분들이라면 이 자리 강추.. 얼마나 열정적이냐? 야푸 먹을 시간이 없습니다.",
+    imgs: [
+      "/img/stadium-review-3.svg",
+      "/img/stadium-review-3-1.svg",
+      "/img/stadium-review-3-2.svg",
+      "/img/stadium-review-3-3.svg",
+    ],
+    text: "잠실구장 풍경 보고 싶고, 내야 외야 한 눈에 보고 싶고, 무엇보다 열정적으로🔥 응원하는 자리 좋아하는 분들이라면 이 자리 강추.. 얼마나 열정적이냐? 야푸 먹을 시간이 없습니다.",
     chips: ["응원하기 좋아요", "사진 잘 나와요", "좌석 좁아요"],
     counts: { family: 546, photo: 985, safe: 123 },
   },
 ];
 
+function PhotoSwiper({ imgs }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let isDown = false;
+    let startX = 0;
+    let startLeft = 0;
+
+    const onDown = (e) => {
+      // ✅ 터치는 기본 스크롤이 자연스러움
+      if (e.pointerType === "touch") return;
+
+      isDown = true;
+      el.classList.add("dragging");
+      el.setPointerCapture?.(e.pointerId);
+
+      startX = e.clientX;
+      startLeft = el.scrollLeft;
+    };
+
+    const onMove = (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      el.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    };
+
+    const onUp = () => {
+      isDown = false;
+      el.classList.remove("dragging");
+      el.style.scrollBehavior = "smooth";
+      el.scrollTo({ left: el.scrollLeft, behavior: "smooth" });
+      requestAnimationFrame(() => (el.style.scrollBehavior = ""));
+    };
+    el.addEventListener("pointerdown", onDown);
+    el.addEventListener("pointermove", onMove, { passive: false });
+    el.addEventListener("pointerup", onUp);
+    el.addEventListener("pointercancel", onUp);
+    el.addEventListener("pointerleave", onUp);
+
+    return () => {
+      el.removeEventListener("pointerdown", onDown);
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerup", onUp);
+      el.removeEventListener("pointercancel", onUp);
+      el.removeEventListener("pointerleave", onUp);
+    };
+  }, []);
+
+  return (
+    <ul className="sr-photoSwiper" ref={ref} role="list" aria-label="리뷰 사진">
+      {imgs.map((src, idx) => (
+        <li className="sr-photoSlide" key={src + idx}>
+          <img
+            src={src}
+            alt={`리뷰 사진 ${idx + 1}`}
+            className="sr-photo"
+            draggable={false}
+          />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function SeatReview() {
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  // ✅ state 없을 때 대비 (직접 url로 들어오는 경우)
   const stadiumName = state?.stadiumName ?? mockSeat.stadiumName;
+
+  const seatType = state?.seatType ?? "오렌지";
+  const section = state?.section ?? 219;
+  const seatNumber = state?.seatNumber ?? 194;
+
+  const seatTitle = `${seatType} ${section}구역 ${seatNumber}번`;
 
   const [sort, setSort] = useState("추천순");
   const [filterKey, setFilterKey] = useState(null);
@@ -86,21 +167,20 @@ export default function SeatReview() {
     <>
       <div className="sr-page">
         <section
-        className="sr-hero"
-        style={{ backgroundImage: `url(${mockSeat.heroImg})` }}
+          className="sr-hero"
+          style={{ backgroundImage: `url(${mockSeat.heroImg})` }}
         >
-        <div className="hero-header">
+          <div className="hero-header">
             <MainPgHeader logoType="back" btnType="ticket" />
-        </div>
+          </div>
 
-        <div className="detail-title detail-title--onHero">
+          <div className="detail-title detail-title--onHero">
             <p className="stadium-name">{stadiumName}</p>
-        </div>
+          </div>
         </section>
 
-        {/* CONTENT SHEET */}
         <main className="sr-sheet">
-          <div className="sr-seatTitle">{mockSeat.seatTitle}</div>
+          <div className="sr-seatTitle">{seatTitle}</div>
           <div className="sr-price">{mockSeat.price}</div>
 
           <div className="sr-tagsRow">
@@ -127,7 +207,9 @@ export default function SeatReview() {
                 >
                   <span className="sr-pillIcon">{s.icon}</span>
                   <span className="sr-pillText">{s.label}</span>
-                  <span className="sr-pillCount">{s.count.toLocaleString()}</span>
+                  <span className="sr-pillCount">
+                    {s.count.toLocaleString()}
+                  </span>
                 </button>
               );
             })}
@@ -139,14 +221,14 @@ export default function SeatReview() {
               className={`sr-sortBtn ${sort === "추천순" ? "isOn" : ""}`}
               onClick={() => setSort("추천순")}
             >
-              + 추천순
+              추천순
             </button>
             <button
               type="button"
               className={`sr-sortBtn ${sort === "최신순" ? "isOn" : ""}`}
               onClick={() => setSort("최신순")}
             >
-              + 최신순
+              최신순
             </button>
           </div>
 
@@ -167,10 +249,7 @@ export default function SeatReview() {
                   </div>
                 </div>
 
-                <div className="sr-photoGrid">
-                  <img className="sr-photo" src={r.imgs[0]} alt="" />
-                  <img className="sr-photo" src={r.imgs[1]} alt="" />
-                </div>
+                <PhotoSwiper imgs={r.imgs} />
 
                 <p className="sr-text">{r.text}</p>
 
@@ -181,8 +260,14 @@ export default function SeatReview() {
                       found?.key && r.counts[found.key]
                         ? r.counts[found.key].toLocaleString()
                         : "0";
+
                     return (
-                      <button key={label} type="button" className="sr-actionPill">
+                      <button
+                        key={label}
+                        type="button"
+                        className="sr-actionPill"
+                      >
+                        <span className="sr-actionIcon">{found?.icon}</span>
                         <span className="sr-actionLabel">{label}</span>
                         <span className="sr-actionCount">{cnt}</span>
                       </button>
